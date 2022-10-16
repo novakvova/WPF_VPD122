@@ -18,9 +18,16 @@
             </MenuItem>
             <MenuItem Header="Допомога"/>
         </Menu>
-
+        <StatusBar DockPanel.Dock="Bottom" >
+            <Label Name="lblStatusBar" Content="Форма запцщена" Foreground="Green" />
+        </StatusBar>
         <Grid>
-            <Button Name="bntConnection" Content="Підключити до БД" Height="30" Width="200" Click="bntConnection_Click" />
+            <Button Name="bntConnection" Content="Додати користувачів" Click="btnAddUsers_Click" Margin="0,72,118,0" Height="54" VerticalAlignment="Top" HorizontalAlignment="Right" Width="195" />
+            <Button Name="btnCansel" Content="Відміна" Margin="0,160,578,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="165" Click="btnCansel_Click" />
+            <Button Name="btnPause" Content="Пауза" Margin="0,160,378,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="165" Click="btnPause_Click" />
+
+            <TextBox x:Name="txtCount" HorizontalAlignment="Left" Margin="156,84,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="200" FontSize="16" Height="30"/>
+            <ProgressBar Name="pbCount" HorizontalAlignment="Left" Height="20" Margin="31,0,0,23" VerticalAlignment="Bottom" Width="724"/>
         </Grid>
     </DockPanel>
 </Window>
