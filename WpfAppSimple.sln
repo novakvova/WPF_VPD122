@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppSimple", "WpfAppSimple\WpfAppSimple.csproj", "{AE97ACA8-5A83-4B37-B6B3-7E00EDBA9855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibDatabase", "LibDatabase\LibDatabase.csproj", "{4DCF052A-0028-48B3-B14C-48AC51DAFBA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibDatabase", "LibDatabase\LibDatabase.csproj", "{4DCF052A-0028-48B3-B14C-48AC51DAFBA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_1_Thread", "_1_Thread\_1_Thread.csproj", "{54BEC95E-E79F-4381-B79D-359A4E1C6F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4DCF052A-0028-48B3-B14C-48AC51DAFBA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCF052A-0028-48B3-B14C-48AC51DAFBA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCF052A-0028-48B3-B14C-48AC51DAFBA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54BEC95E-E79F-4381-B79D-359A4E1C6F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54BEC95E-E79F-4381-B79D-359A4E1C6F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54BEC95E-E79F-4381-B79D-359A4E1C6F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54BEC95E-E79F-4381-B79D-359A4E1C6F11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
