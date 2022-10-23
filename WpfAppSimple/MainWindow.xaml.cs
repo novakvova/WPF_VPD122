@@ -106,7 +106,8 @@ namespace WpfAppSimple
                 {
                     Name = "Іван",
                     Phone = "983 d9s9d 88s8",
-                    Password = "123456"
+                    Password = "123456",
+                    DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
                 });
                 _myDataContext.SaveChanges();
                 Dispatcher.Invoke(() =>
@@ -145,6 +146,12 @@ namespace WpfAppSimple
                 btnPause.Content = "Відновити";
             }
             _isPause = !_isPause;
+        }
+
+        private void mActionUsers_Click(object sender, RoutedEventArgs e)
+        {
+            UsersWindow usersWindow = new UsersWindow(_myDataContext);
+            usersWindow.ShowDialog();
         }
     }
 }
