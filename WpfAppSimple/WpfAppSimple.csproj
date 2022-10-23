@@ -30,4 +30,10 @@
     <Resource Include="register-now.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
