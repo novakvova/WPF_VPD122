@@ -100,15 +100,16 @@ namespace WpfAppSimple
         private void AddUsers(object count)
         {
             int countAdd = (int)(count);
+            var testUser = new Faker<UserEntity>("uk")
+                .RuleFor(o => o.Name, f => f.Name.FullName())
+                .RuleFor(o => o.Phone, f => f.Person.Phone)
+                .RuleFor(o => o.Password, f => f.Internet.Password())
+                .RuleFor(o => o.DateCreated, f => DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc));
+
             for (int i = 0; i < countAdd; i++)
             {
-                _myDataContext.Users.Add(new UserEntity
-                {
-                    Name = "Іван",
-                    Phone = "983 d9s9d 88s8",
-                    Password = "123456",
-                    DateCreated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc),
-                });
+                var user = testUser.Generate();
+                _myDataContext.Users.Add(user);
                 _myDataContext.SaveChanges();
                 Dispatcher.Invoke(() =>
                 {

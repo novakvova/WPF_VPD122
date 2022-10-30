@@ -14,11 +14,28 @@
         </StackPanel>
 
         <WrapPanel DockPanel.Dock="Bottom">
-            
+
         </WrapPanel>
 
         <Grid>
-            <DataGrid Name="dgUsers" IsReadOnly="True" AutoGenerateColumns="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="140" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Canvas>
+                <Button Name="btnSearch" Content="Пошук" Canvas.Left="568" 
+                        Canvas.Top="10" Height="27" Width="62" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" Click="btnSearch_Click" />
+                <Label Content="Ім'я" Canvas.Left="10" Canvas.Top="20"/>
+                <TextBox Canvas.Left="74" Name="txtName"
+                         TextWrapping="Wrap" Text="" Canvas.Top="24" 
+                         Width="120" HorizontalAlignment="Left" 
+                         VerticalAlignment="Center"/>
+
+            </Canvas>
+
+            <DataGrid Grid.Row="1" Name="dgUsers" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Ім'я" Binding="{Binding Name}" 
                                     MinWidth="250" Width="Auto"/>
@@ -31,5 +48,5 @@
             </DataGrid>
         </Grid>
     </DockPanel>
-    
+
 </Window>

@@ -1,4 +1,5 @@
 ﻿using LibDatabase;
+using LibDatabase.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,12 +30,12 @@ namespace WpfAppSimple
         {
             _myDataContext = myDataContext;
             InitializeComponent();
-            InitDataGrid();
+            //InitDataGrid();
         }
-        private void InitDataGrid()
+        private void InitDataGrid(IQueryable<UserEntity> query)
         {
             var cultureInfo = new CultureInfo("uk-UA");
-            var users = _myDataContext.Users
+            var users = query//_myDataContext.Users
                 .OrderBy(x => x.Id)
                 .Select(x=>new UserVM
             {
@@ -79,6 +80,19 @@ namespace WpfAppSimple
                     }
                     //userVM.Name = "Оновили користувача :)";
                 }
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var query = _myDataContext.Users.AsQueryable();
+            SearchUser search = new SearchUser();
+            search.Name = txtName.Text;
+            if (string.IsNullOrEmpty(search.Name))
+            {
+                query = query.Where(x => x.Name.Contains(search.Name));
+            }
+            InitDataGrid(query);
+
         }
     }
 }
