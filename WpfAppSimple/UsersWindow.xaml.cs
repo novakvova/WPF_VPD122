@@ -40,6 +40,17 @@ namespace WpfAppSimple
             InitializeComponent();
             //InitDataGrid();
         }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            MessageBox.Show("ContentRendered");
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Loaded");
+        }
+
         private async Task InitDataGrid(IQueryable<UserEntity> query)
         {
             var cultureInfo = new CultureInfo("uk-UA");
