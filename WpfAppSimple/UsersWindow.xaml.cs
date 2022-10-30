@@ -57,7 +57,8 @@ namespace WpfAppSimple
                 Name = x.Name,
                 Phone = x.Phone,
                 DateCreated = x.DateCreated!=null ? 
-                    x.DateCreated.Value.ToString("dd MMMM yyyy HH:mm:ss", cultureInfo) :""
+                    x.DateCreated.Value.ToString("dd MMMM yyyy HH:mm:ss", cultureInfo) :"",
+                Image = x.Image ?? "noimage.png"
             })
                 .Skip(skip)
                 .Take(pageSize)

@@ -40,13 +40,26 @@
 
             <DataGrid Grid.Row="1" Name="dgUsers" IsReadOnly="True" AutoGenerateColumns="False">
                 <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ImageFilePath}" Width="32" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    
                     <DataGridTextColumn Header="Ім'я" Binding="{Binding Name}" 
                                     MinWidth="250" Width="Auto"/>
                     <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" 
                                     MinWidth="150" Width="Auto"/>
                     <DataGridTextColumn Header="Дата створення" Binding="{Binding DateCreated}" 
                                     MinWidth="200" Width="Auto"/>
+                    
+                    
+                    
                 </DataGrid.Columns>
+
+                
 
             </DataGrid>
         </Grid>

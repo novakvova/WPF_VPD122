@@ -1,9 +1,12 @@
-﻿using System;
+﻿using LibDatabase.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace WpfAppSimple.Models
 {
@@ -26,7 +29,30 @@ namespace WpfAppSimple.Models
             } 
         }
         public string Phone { get; set; }
+        public string Image { get; set; }
         private string _dateCreated;
+         
+        public BitmapImage ImageFilePath { 
+            get
+            {
+                string url = $"{MyAppConfig.GetSectionValue("FolderSaveImages")}/{Image}";
+                return toBitmap(File.ReadAllBytes(url));
+            } 
+        }
+
+        public static BitmapImage toBitmap(Byte[] value)
+        {
+            if (value != null && value is byte[])
+            {
+                byte[] ByteArray = value as byte[];
+                BitmapImage bmp = new BitmapImage();
+                bmp.BeginInit();
+                bmp.StreamSource = new MemoryStream(ByteArray);
+                bmp.EndInit();
+                return bmp;
+            }
+            return null;
+        }
 
         public string DateCreated
         {
