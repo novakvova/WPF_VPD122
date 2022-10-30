@@ -1,11 +1,13 @@
 ﻿using LibDatabase;
 using LibDatabase.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,10 +34,12 @@ namespace WpfAppSimple
             InitializeComponent();
             //InitDataGrid();
         }
-        private void InitDataGrid(IQueryable<UserEntity> query)
+        private async Task InitDataGrid(IQueryable<UserEntity> query)
         {
             var cultureInfo = new CultureInfo("uk-UA");
-            var users = query//_myDataContext.Users
+            int threadId = Thread.CurrentThread.ManagedThreadId;
+
+            var users = await query
                 .OrderBy(x => x.Id)
                 .Select(x=>new UserVM
             {
@@ -44,13 +48,10 @@ namespace WpfAppSimple
                 Phone = x.Phone,
                 DateCreated = x.DateCreated!=null ? 
                     x.DateCreated.Value.ToString("dd MMMM yyyy HH:mm:ss", cultureInfo) :""
-            }).ToList();
-            
-            //users.Add(new UserVM
-            //{
-            //    Name="Іван Петрович",
-            //    Phone="+38097 347 8382"
-            //});
+            }).ToListAsync();
+
+            threadId = Thread.CurrentThread.ManagedThreadId;
+
             dgUsers.ItemsSource = users;
         }
 
@@ -87,7 +88,7 @@ namespace WpfAppSimple
             var query = _myDataContext.Users.AsQueryable();
             SearchUser search = new SearchUser();
             search.Name = txtName.Text;
-            if (string.IsNullOrEmpty(search.Name))
+            if (!string.IsNullOrEmpty(search.Name))
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
             }
