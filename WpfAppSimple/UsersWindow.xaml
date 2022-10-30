@@ -7,17 +7,20 @@
         mc:Ignorable="d"
         Title="UsersWindow" Height="450" Width="800">
 
-    <DockPanel>
+    <DockPanel Margin="0,0,0,10">
         <StackPanel DockPanel.Dock="Right" Margin="10,0,0,0" Width="150">
             <Button Name="btnAddUser" Margin="20,10" Click="btnAddUser_Click">Додати</Button>
             <Button Name="btnEditUser" Margin="20,0" Click="btnEditUser_Click">Змінити</Button>
         </StackPanel>
 
-        <WrapPanel DockPanel.Dock="Bottom">
-
+        <WrapPanel DockPanel.Dock="Bottom" Margin="10,0,0,0">
+            <Label Name="labelInfo" Content="0/0" Margin="0,0,50,0" />
+            <Label Name="labelTime" Content="0.0" Margin="0,0,50,0" />
+            <Button Name="btnPev" Content="&lt;&lt;" FontSize="18" Margin="0,0,10,0" Click="btnPev_Click" />
+            <Button Name="btnNext" Content=">>" FontSize="20" Click="btnNext_Click" />
         </WrapPanel>
 
-        <Grid>
+        <Grid Margin="0,0,0,10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="140" />
                 <RowDefinition Height="*" />

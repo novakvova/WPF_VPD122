@@ -64,6 +64,9 @@ namespace WpfAppSimple
         private void ConnnectionDatabase()
         {
             MyDataContext myDataContext = new MyDataContext();
+
+            myDataContext.ChangeTracker.AutoDetectChangesEnabled = false;
+
             _connectionComplete?.Invoke(myDataContext);
         }
 
