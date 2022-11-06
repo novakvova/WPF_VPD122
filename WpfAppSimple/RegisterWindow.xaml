@@ -5,12 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppSimple"
         mc:Ignorable="d"
-          Title="Реєстрація" Height="280" Width="518">
+          Title="Реєстрація" Height="329" Width="1115" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="250" />
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" MinHeight="150" />
+                <RowDefinition Height="*" MinHeight="150"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Source="/register-now.jpg" />
+            <ListBox x:Name="lbItems" 
+                     Grid.Row="1" 
+                     Margin="20,0" 
+                     SelectionMode="Multiple" />
+        </Grid>
+        
         <StackPanel Grid.Column="1" Margin="10,20,10,0">
             <Label Content="Ім'я користувача" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Height="28" />
             <TextBox x:Name="txtUserName" TextWrapping="Wrap" FontSize="14" Height="20"/>
@@ -21,8 +35,19 @@
             <Label Content="Пароль" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Height="28" />
             <TextBox x:Name="txtPassword" TextWrapping="Wrap" FontSize="14" Height="20"/>
 
-            <Button Content="Реєстрація" Margin="20,15,10,0" />
+            <Label Content="Стать" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Height="28" />
+            <ComboBox x:Name="cbGender"  FontSize="14" Height="25"/>
+
+            <Button x:Name="btnRegister" Content="Реєстрація" Margin="20,15,10,0" Click="btnRegister_Click" />
         </StackPanel>
-        <Image Grid.Column="0" Source="/register-now.jpg" />
+
+        <StackPanel Grid.Column="2" Name="sp">
+                
+                <!--<RadioButton Margin="10" Content="Сало" />
+            <RadioButton Margin="10" Content="Сало"/>-->
+            
+            
+        </StackPanel>
+        
     </Grid>
 </Window>

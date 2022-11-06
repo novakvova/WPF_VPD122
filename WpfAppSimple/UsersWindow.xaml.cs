@@ -43,12 +43,12 @@ namespace WpfAppSimple
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
-            MessageBox.Show("ContentRendered");
+            //MessageBox.Show("ContentRendered");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Loaded");
+            //MessageBox.Show("Loaded");
         }
 
         private async Task InitDataGrid(IQueryable<UserEntity> query)
@@ -62,15 +62,15 @@ namespace WpfAppSimple
             int skip = (page ?? 0) * pageSize;
             var users = await query
                 .OrderBy(x => x.Id)
-                .Select(x=>new UserVM
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Phone = x.Phone,
-                DateCreated = x.DateCreated!=null ? 
-                    x.DateCreated.Value.ToString("dd MMMM yyyy HH:mm:ss", cultureInfo) :"",
-                Image = x.Image ?? "noimage.png"
-            })
+                .Select(x => new UserVM
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Phone = x.Phone,
+                    DateCreated = x.DateCreated != null ?
+                    x.DateCreated.Value.ToString("dd MMMM yyyy HH:mm:ss", cultureInfo) : "",
+                    Image = x.Image ?? "noimage.png"
+                })
                 .Skip(skip)
                 .Take(pageSize)
                 .ToListAsync();
@@ -137,6 +137,8 @@ namespace WpfAppSimple
             {
                 query = query.Where(x => x.Name.Contains(search.Name));
             }
+            if (cbIsImage.IsChecked == true)
+                query = query.Where(x => x.Image != null);
             return query;
         }
 

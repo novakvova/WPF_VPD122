@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppSimple"
         mc:Ignorable="d"
-        Title="Головне вікно" Height="450" Width="818">
+        Title="Головне вікно" Height="450" Width="818" Loaded="Window_Loaded">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -29,6 +29,7 @@
 
             <TextBox x:Name="txtCount" HorizontalAlignment="Left" Margin="156,84,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="200" FontSize="16" Height="30"/>
             <ProgressBar Name="pbCount" HorizontalAlignment="Left" Height="20" Margin="31,0,0,23" VerticalAlignment="Bottom" Width="724"/>
+            <ComboBox Name="cbUsers" HorizontalAlignment="Left" Margin="505,170,0,0" VerticalAlignment="Top" Width="162" Height="22"/>
         </Grid>
     </DockPanel>
 </Window>
