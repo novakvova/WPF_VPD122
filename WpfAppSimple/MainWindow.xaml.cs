@@ -25,6 +25,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfAppSimple.Helpers;
 using WpfAppSimple.Models;
+using WpfAppSimple.ProductAction;
 using BogusGender = Bogus.DataSets.Name.Gender;
 
 namespace WpfAppSimple
@@ -205,8 +206,8 @@ namespace WpfAppSimple
 
         private void mActionSelect_Click(object sender, RoutedEventArgs e)
         {
-            SaveImageWindow saveImage = new SaveImageWindow();
-            saveImage.ShowDialog();
+            ProductForm dlg = new ProductForm();
+            dlg.ShowDialog();
         }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using LibDatabase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LibDatabase.Migrations
 {
     [DbContext(typeof(MyDataContext))]
-    partial class MyDataContextModelSnapshot : ModelSnapshot
+    [Migration("20221113144037_Add products table")]
+    partial class Addproductstable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,32 +48,6 @@ namespace LibDatabase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tblProducts");
-                });
-
-            modelBuilder.Entity("LibDatabase.Entities.ProductImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
-
-                    b.Property<int>("Priority")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("tblProductImages");
                 });
 
             modelBuilder.Entity("LibDatabase.Entities.UserEntity", b =>
@@ -111,22 +87,6 @@ namespace LibDatabase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tblUsers");
-                });
-
-            modelBuilder.Entity("LibDatabase.Entities.ProductImage", b =>
-                {
-                    b.HasOne("LibDatabase.Entities.Product", "Product")
-                        .WithMany("ProductImages")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("LibDatabase.Entities.Product", b =>
-                {
-                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }
