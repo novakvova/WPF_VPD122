@@ -202,5 +202,11 @@ namespace WpfAppSimple
             cbUsers.SelectedIndex = 0;
             var data = cbUsers.Items[0] as MyComboBoxItem;
         }
+
+        private void mActionSelect_Click(object sender, RoutedEventArgs e)
+        {
+            SaveImageWindow saveImage = new SaveImageWindow();
+            saveImage.ShowDialog();
+        }
     }
 }

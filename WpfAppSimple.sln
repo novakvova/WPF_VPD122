@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppSimple", "WpfAppSimpl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibDatabase", "LibDatabase\LibDatabase.csproj", "{4DCF052A-0028-48B3-B14C-48AC51DAFBA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_1_Thread", "_1_Thread\_1_Thread.csproj", "{54BEC95E-E79F-4381-B79D-359A4E1C6F11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_1_Thread", "_1_Thread\_1_Thread.csproj", "{54BEC95E-E79F-4381-B79D-359A4E1C6F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

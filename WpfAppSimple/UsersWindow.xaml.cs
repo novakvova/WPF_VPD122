@@ -124,6 +124,7 @@ namespace WpfAppSimple
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            page = 0;
             var query = ReadDataSearch();
             InitDataGrid(query);
 
@@ -157,12 +158,13 @@ namespace WpfAppSimple
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             int p = (page ?? 0);
-            if (p >= totalPages)
+            if (p >= totalPages-1)
                 return;
             page=++p;
 
             var query = ReadDataSearch();
             InitDataGrid(query);
         }
+
     }
 }
