@@ -13,6 +13,6 @@
         <Label Content="Пароль" Canvas.Left="40" Canvas.Top="77" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Height="27" VerticalAlignment="Top"/>
         <TextBox x:Name="txtPassword" Canvas.Left="40" TextWrapping="Wrap" Canvas.Top="105" Width="237" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Height="20"/>
 
-        <Button x:Name="btnLogin" Content="Вхід" Width="200" Height="20" Canvas.Left="59" Canvas.Top="159" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Button x:Name="btnLogin" Content="Вхід" Width="200" Height="20" Canvas.Left="59" Canvas.Top="159" HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnLogin_Click" />
     </Canvas>
 </Window>

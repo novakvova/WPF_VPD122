@@ -25,5 +25,6 @@ namespace LibDatabase.Entities
         public string Password { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
+        public virtual ICollection<Basket> Baskets { get; set; }
     }
 }

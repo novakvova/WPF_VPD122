@@ -19,6 +19,7 @@ namespace LibDatabase
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -26,6 +27,14 @@ namespace LibDatabase
 
             optionsBuilder.UseNpgsql(dbConnection);
             //optionsBuilder.UseNpgsql("Server=localhost;Port=5432;Database=wpfdata;User Id=postgres;Password=123456;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Basket>(basket =>
+            {
+                basket.HasKey(b => new { b.UserId, b.ProductId });
+            });
         }
     }
 }
